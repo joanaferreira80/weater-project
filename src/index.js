@@ -4,6 +4,16 @@ function displayTemperature(response) {
    let cityElement = document.querySelector("#current-city");
   cityElement.innerHTML = response.data.city;
   temperatureElement.innerHTML = temperature;
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.innerHTML = response.data.condition.description;  
+  let humidityElement =`$document.querySelector("#humidity")%`;
+  humidityElement.innerHTML = response.data.temperature.humidity;
+  let windElement = document.querySelector("#wind");
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+  console.log(response.data);
+  let iconElement = document.querySelector("#icon");
+
+
 }
 
 function searchCity (city){
@@ -19,6 +29,8 @@ function search(event) {
  searchCity(searchInputElement.value);
 }
 searchCity("London");
+
+
 
 function formatDate(date) {
   let minutes = date.getMinutes();
