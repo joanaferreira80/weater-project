@@ -1,22 +1,23 @@
 function displayTemperature(response) {
 
-  let temperatureElement = document.querySelector("#temperature");
-   let cityElement = document.querySelector("#current-city");
-  cityElement.innerHTML = response.data.city;
-  temperatureElement.innerHTML = Math.round(response.data.temperature.current);
-  let descriptionElement = document.querySelector("#description");
-  descriptionElement.innerHTML = response.data.condition.description;  
-  let humidityElement =document.querySelector("#humidity");
-  humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
-  let windSpeed = document.querySelector("#wind-speed");
- //windSpeed.innerHTML = `${response.data.wind.speed}km/h`;
-let icon = document.querySelector("#icon");
-icon.innerHTML= `<img src="${response.data.condition.icon_url}"class="current-temperature-icon"/>`;
+let temperatureElement = document.querySelector("#temperature");
+let cityElement = document.querySelector("#current-city");
+let descriptionElement = document.querySelector("#description");
+let humidityElement =document.querySelector("#humidity");
+let windSpeedElement = document.querySelector("#wind-speed");
+let iconElement = document.querySelector("#icon");
+
+cityElement.innerHTML = response.data.city;
+temperatureElement.innerHTML = Math.round(response.data.temperature.current);
+descriptionElement.innerHTML = response.data.condition.description;  
+humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
+windSpeedElement.innerHTML = `${response.data.wind.speed}km/h`;
+iconElement.innerHTML= `<img src="${response.data.condition.icon_url}"class="current-temperature-icon"/>`;
+
 }
 
 function searchCity (city){
   let apiKey = "t61c0cb24c8co6107fad0a63023aa3ea";
- 
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayTemperature);
 }
