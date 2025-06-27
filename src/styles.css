@@ -102,7 +102,9 @@ justify-content: space-around;
   margin-bottom: 10px;
 }
 .weather-forecast-icon{
-  text-align: center;
+  display: block;
+  margin:0 auto; 
+  width: 60%;
 }
 .weather-forecast-temperatures{
   text-align: center;
